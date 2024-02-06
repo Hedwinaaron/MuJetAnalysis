@@ -1,9 +1,9 @@
 // -*- C++ -*-
 //
-// Package:    MuJetProducerRun2
-// Class:      MuJetProducerRun2
+// Package:    MuJetProducerRun3
+// Class:      MuJetProducerRun3
 //
-/**\class MuJetProducerRun2 MuJetProducerRun2.cc MuJetAnalysis/MuJetProducer/src/MuJetProducerRun2.cc
+/**\class MuJetProducerRun3 MuJetProducerRun3.cc MuJetAnalysis/MuJetProducer/src/MuJetProducerRun3.cc
 
 Description: <one line class summary>
 
@@ -41,10 +41,10 @@ Implementation:
 #include "TLorentzVector.h"
 
 // class declaration
-class MuJetProducerRun2 : public edm::one::EDProducer<edm::one::SharedResources> {
+class MuJetProducerRun3 : public edm::one::EDProducer<edm::one::SharedResources> {
   public:
-  explicit MuJetProducerRun2(const edm::ParameterSet&);
-  ~MuJetProducerRun2();
+  explicit MuJetProducerRun3(const edm::ParameterSet&);
+  ~MuJetProducerRun3();
 
   private:
   virtual void beginJob() ;
@@ -140,7 +140,7 @@ class MuJetProducerRun2 : public edm::one::EDProducer<edm::one::SharedResources>
 //
 // constructors and destructor
 //
-MuJetProducerRun2::MuJetProducerRun2(const edm::ParameterSet& iConfig)
+MuJetProducerRun3::MuJetProducerRun3(const edm::ParameterSet& iConfig)
    : m_muons(                           consumes<pat::MuonCollection>(iConfig.getParameter<edm::InputTag>("muons")))
    //, m_DSAmuons(                        consumes<reco::TrackCollection>(iConfig.getParameter<edm::InputTag>("DSAmuons")))//might consume?
    , m_beamSpot(                        consumes<reco::BeamSpot>(iConfig.getParameter<edm::InputTag>("beamSpot")))
@@ -201,14 +201,14 @@ MuJetProducerRun2::MuJetProducerRun2(const edm::ParameterSet& iConfig)
   else if (m_groupingMode_string == "GroupByDeltaROrMassAndVertexProb") m_groupingMode = kGroupByDeltaROrMassAndVertexProb;
   else if (m_groupingMode_string == "GroupByMassAndVertexProbOrDeltaR") m_groupingMode = kGroupByMassAndVertexProbOrDeltaR;
   else {
-    throw cms::Exception("BadConfig") << "groupingMode string not recognized (see MuJetProducerRun2.cc)" << std::endl;
+    throw cms::Exception("BadConfig") << "groupingMode string not recognized (see MuJetProducerRun3.cc)" << std::endl;
   }
 
   if       (m_groupByCharge_string == "any"     ) m_groupByCharge = kGroupByAnyCharge;
   else if (m_groupByCharge_string == "opposite") m_groupByCharge = kGroupByOppositeCharge;
   else if (m_groupByCharge_string == "same"    ) m_groupByCharge = kGroupBySameCharge;
   else {
-    throw cms::Exception("BadConfig") << "groupByCharge string not recognized (see MuJetProducerRun2.cc)" << std::endl;
+    throw cms::Exception("BadConfig") << "groupByCharge string not recognized (see MuJetProducerRun3.cc)" << std::endl;
   }
 
   for (std::vector<std::string>::const_iterator muonSelector = m_muonSelectors_strings.begin();  muonSelector != m_muonSelectors_strings.end();  ++muonSelector) {
@@ -243,7 +243,7 @@ MuJetProducerRun2::MuJetProducerRun2(const edm::ParameterSet& iConfig)
 }
 
 
-MuJetProducerRun2::~MuJetProducerRun2()
+MuJetProducerRun3::~MuJetProducerRun3()
 {
 
    // do anything here that needs to be done at desctruction time
@@ -256,7 +256,7 @@ MuJetProducerRun2::~MuJetProducerRun2()
 // member functions
 //
 
-bool MuJetProducerRun2::muonOkay(const pat::Muon &muon) {
+bool MuJetProducerRun3::muonOkay(const pat::Muon &muon) {
   //This should be consistent with PassMuonId in main analysis code: CutFlowAnalyzer_MiniAOD,
   //allow ONLY one of four muons can be a standalone muon, here it's pairing two muons, so can't enforce ONLY one of four be SA muon
   //Just relax it allow SA muon in the pairing
@@ -365,7 +365,7 @@ bool MuJetProducerRun2::muonOkay(const pat::Muon &muon) {
 
 
 // ------------ method called to produce the data  ------------
-void MuJetProducerRun2::produce(edm::Event& iEvent, const edm::EventSetup& iSetup) {
+void MuJetProducerRun3::produce(edm::Event& iEvent, const edm::EventSetup& iSetup) {
   std::cout<<"____________________Begin MujetProducer____________________"<<std::endl;
   edm::Handle<pat::MuonCollection> muons;
   iEvent.getByToken(m_muons, muons);
@@ -718,14 +718,14 @@ void MuJetProducerRun2::produce(edm::Event& iEvent, const edm::EventSetup& iSetu
 
 // ------------ method called once each job just before starting event loop  ------------
 void
-MuJetProducerRun2::beginJob()
+MuJetProducerRun3::beginJob()
 {
 }
 
 // ------------ method called once each job just after ending the event loop  ------------
 void
-MuJetProducerRun2::endJob() {
+MuJetProducerRun3::endJob() {
 }
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(MuJetProducerRun2);
+DEFINE_FWK_MODULE(MuJetProducerRun3);
