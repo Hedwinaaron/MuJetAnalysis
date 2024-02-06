@@ -17,7 +17,7 @@ The anlayzer works with CMSSW_12_4_11_patch3.
 
 By issuing the command:
 
-`cmsRun MuJetAnalysis/DataFormats/scripts/patifyMC_Run3/patTuple_cutana_mujets_MiniAOD_cfg.py`
+`cmsRun MuJetAnalysis/DataFormats/scripts/patifyMC_Run-3/patTuple_cutana_mujets_MiniAOD_cfg.py`
 
 ## Cut-and-count
 A simple macro is available for quick cut-and-count based on the Ntuples: `CutFlowAnalyzer/scripts/cutflow_macros/CutFlow_2018L2Mu23.C`. More details on page.
