@@ -17,7 +17,8 @@ The anlayzer works with CMSSW_13_0_3.
 
 By issuing the command:
 
-`cmsRun MuJetAnalysis/DataFormats/scripts/patifyMC_Run-3/patTuple_cutana_mujets_MiniAOD_cfg.py`
+    voms-proxy-init --rfc --voms cms -valid 192:00 #For running files located on the grid locally
+    cmsRun MuJetAnalysis/DataFormats/scripts/patifyMC_Run-3/patTuple_cutana_mujets_MiniAOD_cfg.py
 
 ## Cut-and-count
 A simple macro is available for quick cut-and-count based on the Ntuples: `CutFlowAnalyzer/scripts/cutflow_macros/CutFlow_2018L2Mu23.C`. More details on page.
