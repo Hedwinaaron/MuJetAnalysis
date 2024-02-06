@@ -10,18 +10,14 @@ The anlayzer works with CMSSW_12_4_11_patch3.
 
     cmsrel CMSSW_12_4_11_patch3
     cd CMSSW_12_4_11_patch3/src
-    git clone https://github.com/Hedwinaaron/MuJetAnalysis_Run3.git
-    cd MuJetAnalysis_Run3
+    git clone https://github.com/Hedwinaaron/MuJetAnalysis.git
+    cd MuJetAnalysis
     cmsenv
     scram b
 
 By issuing the command:
 
-`cmsRun MuJetAnalysis_Run3/DataFormats/scripts/patifyMC_13TeV/patTuple_cutana_mujets_MiniAOD_cfg.py`
-
-The analyzer will run over a Run-3 sample. In case the analyzer cannot access the file, it can be found here
-
-`/afs/cern.ch/user/h/hencinas/public`
+`cmsRun MuJetAnalysis/DataFormats/scripts/patifyMC_Run3/patTuple_cutana_mujets_MiniAOD_cfg.py`
 
 ## Cut-and-count
 A simple macro is available for quick cut-and-count based on the Ntuples: `CutFlowAnalyzer/scripts/cutflow_macros/CutFlow_2018L2Mu23.C`. More details on page.
