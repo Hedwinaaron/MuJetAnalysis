@@ -15,7 +15,8 @@ process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 from Configuration.AlCa.GlobalTag import GlobalTag
 
 #Tags are specified here: https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable
-process.GlobalTag = GlobalTag(process.GlobalTag, '124X_mcRun3_2022_realistic_postEE_v1') #2022 MC
+#process.GlobalTag = GlobalTag(process.GlobalTag, '124X_mcRun3_2022_realistic_postEE_v1') #2022 MC
+process.GlobalTag = GlobalTag(process.GlobalTag, '130X_dataRun3_Prompt_v2') #Run2020A-PromptReco-v2
 #process.GlobalTag = GlobalTag(process.GlobalTag, '102X_upgrade2018_realistic_v20') #2018 MC
 #process.GlobalTag = GlobalTag(process.GlobalTag, '102X_dataRun2_v12')              #2018 data: Era ABC
 #process.GlobalTag = GlobalTag(process.GlobalTag, '102X_dataRun2_Prompt_v15')       #2018 data: Era D
@@ -31,7 +32,7 @@ process.load("MuJetAnalysis.CutFlowAnalyzer.CutFlowAnalyzer_MiniAOD_Run3_cff")
 
 process.source = cms.Source(
     "PoolSource",
-    fileNames = cms.untracked.vstring('file:/afs/cern.ch/user/h/hencinas/public/Run3-sample/0f9315cb-fa46-4540-87ed-b29a3f687512.root',
+    fileNames = cms.untracked.vstring('file:root://cmsxrootd.fnal.gov//store/data/Run2023A/Muon0/MINIAOD/PromptReco-v2/000/366/323/00000/4bb7a37c-e184-4f60-a338-85cc20a3cf76.root',
     )
 )
 
